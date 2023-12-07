@@ -28,10 +28,8 @@ mod convert_base {
         if digits.is_empty() {
             return 0;
         }
-    let last_digit_value = digits
-        .chars()
-        .last()
-        .map(|n| n.to_digit(base as u32).unwrap_or(0) as i32);
+        let last_digit_value = digits.chars().last()
+            .map(|n| n.to_digit(base as u32).unwrap_or(0) as i32);
         let mut output = last_digit_value.unwrap_or(0);
         let remainder_string = &digits[..digits.len() - 1];
         output += base * base_string_to_value(remainder_string, base);
